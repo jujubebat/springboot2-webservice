@@ -19,7 +19,7 @@ public class HelloControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void hello가_리턴된다() throws Exception{
+    public void hello가_리턴_테스트() throws Exception{
         String hello = "hello";
 
         mvc.perform(get("/hello"))
@@ -28,7 +28,7 @@ public class HelloControllerTest {
     }
 
     @Test
-    public void helloDto가_리턴된다() throws Exception{
+    public void helloDto가_리턴_테스트() throws Exception{
         String name = "hello";
         int amount = 1000;
 
