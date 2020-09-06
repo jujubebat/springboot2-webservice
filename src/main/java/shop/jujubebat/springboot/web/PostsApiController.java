@@ -7,8 +7,6 @@ import shop.jujubebat.springboot.web.dto.PostsResponseDto;
 import shop.jujubebat.springboot.web.dto.PostsSaveRequestDto;
 import shop.jujubebat.springboot.web.dto.PostsUpdateRequestDto;
 
-import javax.persistence.PostUpdate;
-
 @RequiredArgsConstructor // final 필드를 인자값으로 하는 생성자를 생성해준다. (생성자 방식으로 Bean 객체 주입)
 @RestController
 public class PostsApiController {
@@ -29,5 +27,11 @@ public class PostsApiController {
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
+    }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
     }
 }
