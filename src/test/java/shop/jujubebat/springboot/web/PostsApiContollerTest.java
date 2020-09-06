@@ -23,7 +23,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) // @WebMvcTest에서는 JPA 기능이 작동하지 않기에, @SpringBootTest와 TestRestTemplate을 사용한다.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// @WebMvcTest에서는 JPA 기능이 작동하지 않기에, @SpringBootTest와 TestRestTemplate을 사용한다.
 public class PostsApiContollerTest {
 
     @LocalServerPort
@@ -36,12 +37,12 @@ public class PostsApiContollerTest {
     private PostsRepository postsRepository;
 
     @After
-    public void tearDown() throws Exception{
+    public void tearDown() throws Exception {
         postsRepository.deleteAll();
     }
 
     @Test
-    public void Posts_등록_테스트() throws Exception{
+    public void Posts_등록_테스트() throws Exception {
         // given
         String title = "title";
         String content = "content";
@@ -66,7 +67,7 @@ public class PostsApiContollerTest {
     }
 
     @Test
-    public void Posts_수정_테스트() throws Exception{
+    public void Posts_수정_테스트() throws Exception {
         // given
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
@@ -99,14 +100,14 @@ public class PostsApiContollerTest {
     }
 
     @Test
-    public void BaseTimeEntity_등록_테스트(){
+    public void BaseTimeEntity_등록_테스트() {
         // given
-        LocalDateTime now = LocalDateTime.of(2020,9,4,0,0,0);
+        LocalDateTime now = LocalDateTime.of(2020, 9, 4, 0, 0, 0);
         postsRepository.save(Posts.builder()
-        .title("title")
-        .content("content")
-        .author("author")
-        .build());
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
 
         // when
         List<Posts> postsList = postsRepository.findAll();
@@ -114,7 +115,7 @@ public class PostsApiContollerTest {
         // then
         Posts posts = postsList.get(0);
 
-        System.out.printf(">>>>>>>>>>>>createDate="+posts.getCreatedDate()+",modifiedDate="+posts.getModifiedDate());
+        System.out.printf(">>>>>>>>>>>>createDate=" + posts.getCreatedDate() + ",modifiedDate=" + posts.getModifiedDate());
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
     }
