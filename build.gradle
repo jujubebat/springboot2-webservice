@@ -30,5 +30,6 @@ dependencies { // 프로젝트 개발에 필요한 의존성(라이브러리)들
     compile('com.h2database:h2') // 인메모리 관계형 데이터베이스이다. 메모리에서 실행되기에 재시작시 데이터가 초기화 됨. 테스트 용도로 주로 사용됨.
     compile('org.springframework.boot:spring-boot-starter-mustache') // 머스테치 라이브러리
     compile('org.springframework.boot:spring-boot-starter-oauth2-client') // 클라이언트 입장에서 소셜 로그인 구현시 필요한 라이브러리
+    compile('org.springframework.session:spring-session-jdbc') // 세션 저장소를 WAS가 아닌 DB로 변경하기 위한 설정을 위한 라이브러리
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

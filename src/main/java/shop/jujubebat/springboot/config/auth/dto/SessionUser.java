@@ -3,8 +3,10 @@ package shop.jujubebat.springboot.config.auth.dto;
 import lombok.Getter;
 import shop.jujubebat.springboot.domain.user.User;
 
+import java.io.Serializable;
+
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
 
     private String name;
     private String email;
