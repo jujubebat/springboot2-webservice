@@ -31,6 +31,7 @@ dependencies { // 프로젝트 개발에 필요한 의존성(라이브러리)들
     compile('org.springframework.boot:spring-boot-starter-mustache') // 머스테치 라이브러리
     compile('org.springframework.boot:spring-boot-starter-oauth2-client') // 클라이언트 입장에서 소셜 로그인 구현시 필요한 라이브러리
     compile('org.springframework.session:spring-session-jdbc') // 세션 저장소를 WAS가 아닌 DB로 변경하기 위한 설정을 위한 라이브러리
+    compile('org.mariadb.jdbc:mariadb-java-client')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
 }
